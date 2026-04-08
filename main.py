@@ -8,10 +8,10 @@ planet_radius = planet_diameter/2 # m
 
 satellite_altitude = 4e5 # m
 satellite_position = (satellite_altitude + planet_radius)*1j # m
-satellite_velocity = 0.75*7.67e3 # m/s
+satellite_velocity = 7.67e3 # m/s
 
 start_time = 0 # s
-timestep = 1 # s
+timestep = 15 # s
 max_time = 60*60*24*7 # s
 step_count = int(max_time / timestep)
 
