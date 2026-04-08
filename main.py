@@ -1,6 +1,6 @@
 from newton import *
 from plot import *
-from PyQt6.QtWidgets import QApplication
+from PyQt6.QtWidgets import QApplication # ty: ignore
 
 planet_mass = 5.9722e24 # kg
 planet_diameter = 1.2756e7 # m

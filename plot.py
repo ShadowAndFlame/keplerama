@@ -1,6 +1,6 @@
 from turtle import title
-import pyqtgraph as pg
-from PyQt6.QtWidgets import QGraphicsEllipseItem
+import pyqtgraph as pg # ty: ignore
+from PyQt6.QtWidgets import QGraphicsEllipseItem # ty: ignore
 
 def complex_to_xy(z: list[complex]) -> tuple[list[float], list[float]]:
     x = [zz.real for zz in z]
