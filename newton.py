@@ -11,9 +11,9 @@ def g(m: float, x: complex) -> complex:
 
 def step(t1: float, x1: complex, v1: complex, a1: complex, dt: float, m: float) -> tuple[float, complex, complex, complex]:
     t2: float = t1 + dt
-    x2: complex = x1 + v1*dt # m
-    v2: complex = v1 + a1*dt # m/s
     a2: complex = g(m, x1) # m/s^2
+    v2: complex = v1 + a2*dt # m/s
+    x2: complex = x1 + v2*dt # m
     return t2, x2, v2, a2
 
 def loop(t0: float, x0: complex, v0: complex, dt: float, t_count: int, m: float) -> tuple[list[float], list[complex], list[complex], list[complex]]:

@@ -12,7 +12,7 @@ satellite_velocity = 7.67e3 # m/s
 
 start_time = 0 # s
 timestep = 1 # s
-max_time = 60*60*12 # s
+max_time = 60*60*24*7 # s
 step_count = int(max_time / timestep)
 
 def main():
