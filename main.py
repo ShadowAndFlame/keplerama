@@ -11,14 +11,14 @@ satellite_position = (satellite_altitude + planet_radius)*1j # m
 satellite_velocity = 7.67e3 # m/s
 
 start_time = 0 # s
-timestep = 60 # s
+timestep = 1 # s
 max_time = 60*60*12 # s
 step_count = int(max_time / timestep)
 
 def main():
     app = QApplication([])
     t, x, v, a = loop(start_time, satellite_position, satellite_velocity, timestep, step_count, planet_mass)
-    plot_complex(x)
+    plot_complex(x, planet_diameter)
     app.exec()
     
 if __name__ == "__main__":
