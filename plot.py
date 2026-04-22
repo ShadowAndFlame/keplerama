@@ -1,4 +1,4 @@
-from newton import magnitude, direction
+from newton import magnitude, direction, Body
 from typing import Generator
 import pyqtgraph as pg # ty: ignore
 from PyQt6.QtWidgets import QGraphicsEllipseItem # ty: ignore
@@ -22,15 +22,18 @@ def plot_complex(z: list[complex], d: float = 0):
 
     plot.plot(*complex_to_xy(z))
 
-def plot_complex_live(gen: Generator[complex, None, None], d: float = 0) -> QTimer:
+def plot_complex_live(gen: Generator[complex, None, None], bodies: list[Body]) -> QTimer:
     plot = pg.plot()
     plot.setAspectLocked(True)
     plot.showGrid(x=True, y=True)
 
-    planet = QGraphicsEllipseItem(-d/2, -d/2, d, d)  # x, y, width, height
-    planet.setPen(pg.mkPen((0, 0, 0, 100)))
-    planet.setBrush(pg.mkBrush((0, 0, 255)))
-    plot.addItem(planet)
+    planets = []
+    for body in bodies:
+        planet = QGraphicsEllipseItem(-d/2, -d/2, d, d)  # x, y, width, height
+        planet.setPen(pg.mkPen((0, 0, 0, 100)))
+        planet.setBrush(pg.mkBrush((0, 0, 255)))
+        plot.addItem(planet)
+        planets.append(planet)
 
     z0 = next(gen)
     x0 = z0.real
